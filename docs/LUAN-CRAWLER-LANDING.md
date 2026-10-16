@@ -40,4 +40,4 @@ Cần kiểm tra bằng `npx wrangler dev` trước khi xuất bản. Việc c�
 
 ## Thiết kế
 
-Sử dụng Be Vietnam Pro, DM Serif Display, nền trắng ngà, xanh thương hiệu và điểm nhấn vàng đồng. Tham khảo cấu trúc trình bày của https://luangroup.asia/gioi-thieu nhưng không sao chép pixel-perfect.
+Phong cách emerald theo https://luangroup.asia/du-an: chỉ dùng font Be Vietnam Pro, nền xanh rêu đậm `#03261d`, gradient mint `#8ef0c4 → #5fe0a8`, nút và nhãn dạng viên thuốc, thẻ bo góc 24–32px, thẻ kính mờ trên hero tối, tiêu đề lớn với khoảng cách chữ khít. Không sao chép pixel-perfect.

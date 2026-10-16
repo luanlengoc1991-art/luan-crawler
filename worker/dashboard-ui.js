@@ -170,7 +170,7 @@ button,input,textarea,select{font:inherit;color:inherit}button{cursor:pointer}bu
 @media(max-width:1180px){.header-link{display:none}.nav a{padding:10px 11px;font-size:14px}.hero-cards{grid-template-columns:repeat(2,1fr)}.eco-grid{grid-template-columns:1fr 1fr}.eco-card.feature{grid-column:1/-1}}
 @media(max-width:960px){.site-header{inset:14px 14px auto;height:64px}.nav{display:none;position:absolute;top:74px;left:0;right:0;flex-direction:column;align-items:stretch;padding:14px;border-radius:var(--r);background:#fff;color:var(--ink);box-shadow:0 30px 50px -30px rgba(2,38,29,.4)}.nav.open{display:flex}.nav a{padding:12px 16px}.mobile-menu{display:block}.header-cta{display:none}.hero-row,.import-layout,.sync-layout{grid-template-columns:1fr}.section{padding-block:80px}.outline-num{font-size:80px}}
 @media(max-width:640px){.wrap{width:calc(100% - 32px)}.hero,.sheet-section,.band,.footer{margin-inline:6px}.hero{border-radius:var(--r)}.hero-body{padding:130px 0 40px}.hero h1{font-size:46px}.hero-cards{gap:10px}.glass{padding:18px}.stat strong{font-size:36px;margin:12px 0 8px}.stat .heading{font-size:10.5px}.btn-arrow{height:52px}.h2{font-size:36px}.section-head{flex-direction:column;align-items:flex-start}.outline-num{display:none}.form-card{padding:22px}.form-row{grid-template-columns:1fr}.button-group .btn{width:100%}.toolbar-left{flex-direction:column;width:100%}.toolbar-left .select{width:100%!important}.toolbar-actions,.toolbar-actions .btn{width:100%}.source{flex-wrap:wrap;gap:10px;padding:16px}.source-name{flex-basis:calc(100% - 62px)}.source-btns{margin-left:auto}.preview-top-left,.preview-top-right,.preview-select{width:100%}.preview-top-right .btn{flex:1}.preview-meta{flex-direction:column}.eco-grid{grid-template-columns:1fr}.footer-main{flex-direction:column}.brand-text small{display:none}}
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+
 :root{--red:#e11d48;--red-soft:#fff1f3;--amber:#b45309;--amber-soft:#fff7e6}
 /* hero with the setup form as the main element */
 .hero{min-height:auto}
@@ -343,6 +343,21 @@ html,body{overflow-x:clip}
 .refresh-bar{position:relative;height:3px;background:#cfe3da;border-radius:3px;overflow:hidden;width:120px;display:inline-block;vertical-align:middle;margin-left:10px}
 .refresh-bar i{position:absolute;inset:0;background:linear-gradient(90deg,var(--em),var(--mint-2));transform-origin:0 50%;animation:sz-bar-x 60s linear forwards}
 @keyframes sz-bar-x{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+
+/* hero text slider + entrance */
+.hero h1 .swap{display:inline-grid;vertical-align:top;background:none;-webkit-background-clip:border-box;background-clip:border-box;color:inherit;overflow:hidden;padding:.1em 0 .26em;margin:-.1em 0 -.26em}
+.hero h1 .swap-word{grid-area:1/1;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;opacity:0;transform:translateY(70%);filter:blur(6px);transition:opacity .7s var(--ease),transform .8s var(--ease),filter .7s var(--ease);white-space:nowrap}
+.hero h1 .swap-word.is-on{opacity:1;transform:none;filter:none}
+.hero h1 .swap-word.is-out{opacity:0;transform:translateY(-70%);filter:blur(6px)}
+@keyframes sz-swap{0%{opacity:0;transform:translateY(34px)}100%{opacity:1;transform:none}}
+.hero-grid>div>*{animation:sz-swap 1s var(--ease) both}
+.hero-grid>div>:nth-child(2){animation-delay:.12s}.hero-grid>div>:nth-child(3){animation-delay:.24s}.hero-grid>div>:nth-child(4){animation-delay:.36s}.hero-grid>div>:nth-child(5){animation-delay:.46s}.hero-grid>div>:nth-child(6){animation-delay:.56s}
+.hero .setup{animation:sz-swap 1s var(--ease) .3s both,deck-glow 4s ease-in-out 1.3s infinite}
+@keyframes deck-glow{0%,100%{box-shadow:0 50px 90px -40px rgba(0,0,0,.55),0 0 0 8px rgba(142,240,196,.12)}50%{box-shadow:0 50px 90px -40px rgba(0,0,0,.55),0 0 0 14px rgba(142,240,196,.22)}}
+.hero .hero-search{animation:sz-swap 1s var(--ease) .4s both,search-glow 3s ease-in-out 1.4s infinite}
+@keyframes search-glow{0%,100%{box-shadow:0 0 0 6px rgba(142,240,196,.08)}50%{box-shadow:0 0 0 12px rgba(142,240,196,.2)}}
+.hero-cards .glass{animation:sz-swap 1s var(--ease) both}.hero-cards .glass:nth-child(2){animation-delay:.1s}.hero-cards .glass:nth-child(3){animation-delay:.2s}.hero-cards .glass:nth-child(4){animation-delay:.3s}
+@media(max-width:640px){.hero h1 .swap-word{white-space:normal}}
 /* ---- unit code search ---- */
 .hero-search{display:flex;align-items:center;gap:10px;margin-top:28px;padding:8px 8px 8px 22px;border-radius:999px;background:rgba(255,255,255,.1);border:1px solid rgba(142,240,196,.45);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);max-width:640px;box-shadow:0 0 0 6px rgba(142,240,196,.08);transition:box-shadow .3s,border-color .3s}
 .hero-search:focus-within{border-color:var(--mint);box-shadow:0 0 0 8px rgba(142,240,196,.18)}
@@ -386,7 +401,7 @@ kbd{display:inline-block;min-width:22px;padding:1px 7px;border-radius:6px;border
 .sx-empty{padding:46px 24px;text-align:center;color:var(--muted)}
 .sx-empty b{display:block;font-size:17px;color:var(--ink);margin-bottom:4px}
 @media(max-width:640px){.hero-search{padding-left:16px}.hero-search .btn-arrow{height:48px;padding:0 4px 0 14px;font-size:13px}.hero-search .btn-arrow i{width:40px;height:40px}.fab{right:16px;bottom:16px;height:56px;padding-right:18px}.fab b{display:none}.fab{padding:0 5px}.sx{padding-top:4vh}.sx-bar input{font-size:18px}.sx-item{grid-template-columns:1fr}.sx-right{text-align:left}.sx-actions{justify-content:flex-start}.fx-marquee{margin:-22px 0 -16px}}
-@media(prefers-reduced-motion:reduce){.eyebrow .eb-track,.fx-marquee-track,.hero .blob,.fab .fab-wave,.refresh-bar i{animation:none}[data-reveal]{opacity:1;transform:none}}
+
 @media(max-width:1180px){.hero-grid{grid-template-columns:1fr}.setup{max-width:760px}.wgrid{grid-template-columns:140px minmax(200px,1.5fr) 80px minmax(150px,1fr) 140px 200px}.wgrid>.wnext{display:none}.whead .wnext{display:none}}
 @media(max-width:900px){.whead{display:none}.wgrid{grid-template-columns:1fr 1fr;gap:10px 14px}.wrow{padding:18px}.wgrid>.wname,.wgrid>.wact,.wgrid>.wchg{grid-column:1/-1}.wgrid>.wnext{display:block}.wact{justify-content:flex-start;flex-wrap:wrap}.wlabel{display:block;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:2px}.toolbar .select{flex:1 1 140px}.toolbar-right{width:100%}.toolbar-right .btn{flex:1}}
 @media(max-width:640px){.hero-body{padding:110px 0 36px}.setup{padding:20px}.setup-head strong{font-size:19px}.stat strong{font-size:32px}.feed-item{grid-template-columns:1fr}.filters{grid-template-columns:1fr 1fr}}
@@ -407,7 +422,7 @@ kbd{display:inline-block;min-width:22px;padding:1px 7px;border-radius:6px;border
     <div class="hero-grid">
       <div>
         <div class="eyebrow"><span class="eb-window"><span class="eb-track"><span>LUAN CRAWLER · Theo dõi giỏ hàng</span><span>Báo đỏ khi có thay đổi</span><span>Tự cập nhật 60 phút</span><span>LUAN CRAWLER · Theo dõi giỏ hàng</span><span>Báo đỏ khi có thay đổi</span><span>Tự cập nhật 60 phút</span></span></span></div>
-        <h1>Mọi thay đổi giỏ hàng.<br><span>Biết ngay lập tức.</span></h1>
+        <h1>Mọi thay đổi giỏ hàng.<br><span class="swap" id="swap"><span class="swap-word is-on">Biết ngay lập tức.</span><span class="swap-word">Căn mới báo ngay.</span><span class="swap-word">Đổi giá báo ngay.</span><span class="swap-word">Đã bán báo ngay.</span></span></h1>
         <p class="hero-statement">Dán link bảng hàng, hệ thống lưu lại toàn bộ dữ liệu và liên kết với link gốc. Tự kiểm tra lại mỗi 60 phút, kể cả khi bạn tắt máy. Có căn mới, căn đã bán hay đổi giá là báo đỏ; không có gì thay đổi thì tích xanh.</p>
         <form class="hero-search" id="hero-search" role="search"><span class="hs-icon" aria-hidden="true">⌕</span><input id="hero-q" autocomplete="off" placeholder="Tìm nhanh mã căn, VD: NĐ11-41" aria-label="Tìm mã căn"><button class="btn btn-white btn-arrow" type="submit">Tìm mã căn <i>↗</i></button></form>
         <p class="hs-hint">Tìm trong mọi nguồn đang theo dõi · nhấn <kbd>/</kbd> hoặc <kbd>Ctrl K</kbd> ở bất kỳ đâu</p>
@@ -633,6 +648,7 @@ $('feed-filter').addEventListener('click',function(ev){var b=ev.target.closest('
 function countTo(el,target){target=Number(target||0);var from=Number(el.getAttribute('data-v')||0);el.setAttribute('data-v',target);if(from===target){el.textContent=num(target);return}var t0=performance.now(),d=900;(function step(t){var p=Math.min(1,(t-t0)/d),e=1-Math.pow(1-p,3);el.textContent=num(Math.round(from+(target-from)*e));if(p<1)requestAnimationFrame(step)})(t0)}
 (function reveal(){var els=document.querySelectorAll('.section-head,.manager-panel,.data-zone .panel,.sync-card,.eco-card,.setup');if(!('IntersectionObserver' in window))return;var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){en.target.classList.add('is-in');io.unobserve(en.target)}})},{rootMargin:'0px 0px -8% 0px'});[].forEach.call(els,function(el,i){el.setAttribute('data-reveal','');el.style.transitionDelay=(el.classList.contains('eco-card')||el.classList.contains('sync-card')?(i%3)*0.12:0)+'s';io.observe(el)})})();
 
+(function swapper(){var box=$('swap');if(!box)return;var w=[].slice.call(box.children),i=0;setInterval(function(){var cur=w[i];i=(i+1)%w.length;cur.classList.remove('is-on');cur.classList.add('is-out');setTimeout(function(){cur.classList.remove('is-out')},800);w[i].classList.add('is-on')},2600)})();
 /* ---------- unit code search ---------- */
 var sxTimer,sxSeq=0,sxActive=-1,sxList=[];
 function skey(s){return String(s==null?'':s).toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/đ/g,'d').replace(/[^a-z0-9]/g,'')}

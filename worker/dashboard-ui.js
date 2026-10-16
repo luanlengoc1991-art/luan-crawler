@@ -264,6 +264,55 @@ button,input,textarea,select{font:inherit;color:inherit}button{cursor:pointer}bu
 .how{display:grid;gap:10px;margin-top:18px}
 .how div{display:flex;gap:12px;align-items:flex-start;font-size:13.5px;color:#c3dfd0}
 .how i{flex:none;width:28px;height:28px;border-radius:999px;display:grid;place-items:center;font-style:normal;font-size:12px;font-weight:700;background:var(--grad);color:var(--deep)}
+
+/* emphasis pass: watchlist on deep green, data on mint sheet, stronger type */
+#watch{margin-top:0}
+.band .h2 span{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+#watch .manager-panel{box-shadow:0 50px 90px -40px rgba(0,0,0,.6),0 0 0 6px rgba(142,240,196,.14)}
+#watch .toolbar{background:#fff}
+#watch .livebar{background:#e7f8ef;color:var(--ink);font-weight:500}
+.whead{background:var(--deep);color:var(--mint);font-size:12px;border-bottom:0}
+.wrow{border-left:5px solid transparent;color:var(--ink)}
+.wrow.is-calm{border-left-color:var(--em)}
+.wrow.is-alert{border-left-color:var(--red);background:linear-gradient(90deg,#ffe4e9,#fff 70%)}
+.wrow.is-error{border-left-color:var(--amber)}
+.wrow.is-selected{box-shadow:inset 0 0 0 2px var(--mint-2)}
+.wname strong{font-size:16.5px;font-weight:700;color:var(--deep)}
+.wname a{font-size:13px;font-weight:600}
+.wmeta{color:#52635d}
+.wnum{font-size:24px;font-weight:800;color:var(--deep)}
+.wtime b{font-size:15.5px;font-weight:700;color:var(--ink)}
+.wtime span{color:#52635d}
+.badge{height:32px;font-size:12.5px}
+.badge.green{background:var(--em);color:#fff;box-shadow:0 8px 18px -10px rgba(5,150,105,.8)}
+.badge.grey{background:#e6ece9;color:#3f4f49}
+.delta{height:26px;font-size:12.5px}
+.delta.add{background:#d1f5e3;color:#065f46}
+.mini-select{border-color:#cfe3da;color:var(--ink)}
+.icon-btn{border-color:#cfe3da;color:var(--em-2);font-weight:700}
+.data-zone .panel{box-shadow:0 40px 80px -45px rgba(2,38,29,.35);border-color:#cfe3da}
+.data-head{background:var(--deep);color:#fff;border-bottom:0}
+.data-title strong{font-size:22px;color:#fff}
+.data-title a{color:var(--mint);font-weight:600}
+.data-title .wmeta{color:#c3dfd0}
+.data-head .preview-select{background:#fff}
+.data-head .btn-outline{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.35);color:#fff}
+.data-head .btn-dark{background:var(--grad);color:var(--deep);box-shadow:none}
+.filters{background:#e7f8ef;border-bottom:1px solid #cfe3da}
+.filters .input,.filters .select{background:#fff;border-color:#cfe3da;color:var(--ink)}
+.data-zone .livebar{background:#f3faf6;color:var(--ink);font-weight:500;border-bottom:1px solid #cfe3da}
+.data-table{font-size:14px}
+.data-table th{background:var(--deep-2);color:var(--mint);font-size:12.5px;padding:15px 18px}
+.data-table td{color:var(--ink);font-weight:500;padding:14px 18px}
+.data-table tbody tr:nth-child(even) td{background:#f5fbf8}
+.data-table tbody tr:hover td{background:#e7f8ef}
+.data-table td.key{font-weight:800;color:var(--deep)}
+.data-table td.money{font-weight:700;color:var(--em-2)}
+.data-table td.cell-changed{color:var(--red)}
+.data-table tr.r-price td,.data-table tr.r-other td{background:#ffe4e9!important}
+.data-table tr.r-added td{background:#d9f7e8!important}
+#watch .toolbar .btn-outline{background:#fff;border-color:#cfe3da;color:var(--ink);height:50px;padding:0 24px;font-size:14px}#watch .toolbar .btn-outline:hover{background:var(--soft);border-color:var(--mint-2)}.data-head .preview-select{width:280px}@media(min-width:1181px){.data-head .preview-top-right{flex-wrap:nowrap}}
+.tick{display:inline-grid;place-items:center;width:24px;height:24px;border-radius:999px;background:#d1f5e3;color:var(--em-2);font-weight:800;font-size:12px}
 @media(max-width:1180px){.hero-grid{grid-template-columns:1fr}.setup{max-width:760px}.wgrid{grid-template-columns:140px minmax(200px,1.5fr) 80px minmax(150px,1fr) 140px 200px}.wgrid>.wnext{display:none}.whead .wnext{display:none}}
 @media(max-width:900px){.whead{display:none}.wgrid{grid-template-columns:1fr 1fr;gap:10px 14px}.wrow{padding:18px}.wgrid>.wname,.wgrid>.wact,.wgrid>.wchg{grid-column:1/-1}.wgrid>.wnext{display:block}.wact{justify-content:flex-start;flex-wrap:wrap}.wlabel{display:block;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:2px}.toolbar .select{flex:1 1 140px}.toolbar-right{width:100%}.toolbar-right .btn{flex:1}}
 @media(max-width:640px){.hero-body{padding:110px 0 36px}.setup{padding:20px}.setup-head strong{font-size:19px}.stat strong{font-size:32px}.feed-item{grid-template-columns:1fr}.filters{grid-template-columns:1fr 1fr}}
@@ -313,7 +362,7 @@ button,input,textarea,select{font:inherit;color:inherit}button{cursor:pointer}bu
   </div>
 </section>
 
-<section class="section sheet-section" id="watch"><div class="wrap">
+<section class="section band on-dark" id="watch"><div class="wrap">
  <div class="section-head"><div><div class="eyebrow">01 · Bảng theo dõi</div><h2 class="h2">Toàn bộ link gốc.<br><span>Thay đổi nào cũng thấy.</span></h2><p class="lead">Đỏ là có cập nhật mới chưa xem, xanh là không có thay đổi gì. Nguồn có cập nhật mới luôn nằm trên cùng.</p></div><div class="outline-num" aria-hidden="true">01</div></div>
  <div class="panel manager-panel">
   <div class="toolbar">
@@ -330,7 +379,7 @@ button,input,textarea,select{font:inherit;color:inherit}button{cursor:pointer}bu
  </div>
 </div></section>
 
-<section class="section" id="data"><div class="wrap">
+<section class="section sheet-section data-zone" id="data"><div class="wrap">
  <div class="section-head"><div><div class="eyebrow">02 · Dữ liệu đã lưu</div><h2 class="h2">Bảng hàng đầy đủ.<br><span>Lọc chuyên nghiệp.</span></h2><p class="lead">Dữ liệu tải về được lưu trên máy chủ và đối chiếu với link gốc. Dòng đỏ là thay đổi chưa xem, giá cũ hiển thị gạch ngang ngay bên dưới.</p></div><div class="outline-num" aria-hidden="true">02</div></div>
  <div class="panel" style="border-radius:var(--r-lg)">
   <div class="data-head"><div class="data-title" id="data-title"><strong>Chọn một nguồn để xem</strong><span class="wmeta">Bấm ▤ ở bảng theo dõi hoặc chọn bên phải</span></div><div class="preview-top-right"><select class="preview-select" id="data-source" aria-label="Chọn nguồn"><option value="">Chọn nguồn dữ liệu</option></select><button class="btn btn-outline" id="data-csv">⇩ CSV theo bộ lọc</button><button class="btn btn-dark" id="data-xlsx">⇩ Excel đầy đủ</button></div></div>
@@ -414,7 +463,7 @@ function renderWatch(){
   var cmp={alert:function(a,b){return (b.unseen>0)-(a.unseen>0)||(b.lastChangedAt||0)-(a.lastChangedAt||0)},changed:function(a,b){return (b.lastChangedAt||0)-(a.lastChangedAt||0)},checked:function(a,b){return (b.lastCheckedAt||0)-(a.lastCheckedAt||0)},name:function(a,b){return (a.name||a.url).localeCompare(b.name||b.url,'vi')},rows:function(a,b){return (b.rowCount||0)-(a.rowCount||0)}}[so];rows.sort(cmp);
   if(!list.length){$('watch-list').innerHTML='<div class="empty"><span class="big">⌁</span><b>Chưa có nguồn theo dõi</b><p>Dán link vào ô Thiết lập nguồn dữ liệu ở đầu trang.</p></div>';return}
   if(!rows.length){$('watch-list').innerHTML='<div class="empty"><span class="big">⌕</span><b>Không có nguồn phù hợp bộ lọc</b><p>Thử đổi trạng thái, nhóm hoặc từ khoá.</p></div>';return}
-  $('watch-list').innerHTML=rows.map(function(s){var st=statusOf(s);return '<div class="wgrid wrow'+(st==='alert'?' is-alert':'')+(s.id===state.selected?' is-selected':'')+'" data-id="'+s.id+'">'+
+  $('watch-list').innerHTML=rows.map(function(s){var st=statusOf(s);return '<div class="wgrid wrow'+(st==='alert'?' is-alert':st==='calm'?' is-calm':st==='error'?' is-error':'')+(s.id===state.selected?' is-selected':'')+'" data-id="'+s.id+'">'+
     '<div><span class="wlabel">Trạng thái</span>'+badge(s)+'</div>'+
     '<div class="wname"><strong title="'+esc(s.name||'')+'">'+esc(s.name||host(s.url))+'</strong><a href="'+esc(s.url)+'" target="_blank" rel="noopener" title="Mở link gốc">↗ '+esc(s.url.replace(/^https:\/\/(www\.)?/,''))+'</a><div class="wmeta">'+(s.tag?'<span class="tagpill">'+esc(s.tag)+'</span>':'')+esc(s.kind||'Chưa xác định')+(s.error&&st==='error'?' · '+esc(s.error):'')+'</div></div>'+
     '<div><span class="wlabel">Bản ghi</span><span class="wnum">'+num(s.rowCount)+'</span></div>'+
@@ -490,8 +539,8 @@ function renderData(){var d=state.data;if(!d){$('data-title').innerHTML='<strong
   if(!rows.length){$('table-scroll').innerHTML='<div class="empty"><span class="big">⌕</span><b>Không có bản ghi phù hợp</b><p>Thử nới bộ lọc.</p></div>';$('more').hidden=true;return}
   var th='<th data-sort="_status"'+(state.sort.col==='_status'?' class="sorted'+(state.sort.asc?' asc':'')+'"':'')+'>Trạng thái</th>'+cols.map(function(c){return '<th data-sort="'+esc(c)+'"'+(state.sort.col===c?' class="sorted'+(state.sort.asc?' asc':'')+'"':'')+'>'+esc(label(c))+'</th>'}).join('');
   var body=rows.slice(0,state.limit).map(function(it){var ch=it.change,cls=it.removedAt?'r-removed':ch?'r-'+ch.type:'';var old={};if(ch&&ch.fields)ch.fields.forEach(function(f){old[f.f]=f.o});
-    var st=it.removedAt?'<span class="delta rem">Đã gỡ '+fmtTime(it.removedAt,true)+'</span>':ch?'<span class="delta '+(ch.type==='added'?'add':ch.type)+'">'+TYPE_TEXT[ch.type]+'</span>':'<span class="wmeta">✓</span>';
-    return '<tr class="'+cls+'"><td>'+st+'</td>'+cols.map(function(c){var v=show(c,it.data[c]);var changed=Object.prototype.hasOwnProperty.call(old,c);return '<td'+(changed?' class="cell-changed"':'')+' title="'+esc(v)+'">'+esc(v)+(changed?'<small>'+esc(show(c,old[c])||'trống')+'</small>':'')+'</td>'}).join('')+'</tr>'}).join('');
+    var st=it.removedAt?'<span class="delta rem">Đã gỡ '+fmtTime(it.removedAt,true)+'</span>':ch?'<span class="delta '+(ch.type==='added'?'add':ch.type)+'">'+TYPE_TEXT[ch.type]+'</span>':'<span class="tick">✓</span>';
+    return '<tr class="'+cls+'"><td>'+st+'</td>'+cols.map(function(c){var v=show(c,it.data[c]);var changed=Object.prototype.hasOwnProperty.call(old,c);var cc=(MONEY.test(c)&&typeof it.data[c]==='number'?'money ':'')+(c===cols[0]?'key ':'')+(changed?'cell-changed':'');return '<td'+(cc?' class="'+cc.trim()+'"':'')+' title="'+esc(v)+'">'+esc(v)+(changed?'<small>'+esc(show(c,old[c])||'trống')+'</small>':'')+'</td>'}).join('')+'</tr>'}).join('');
   $('table-scroll').innerHTML='<table class="data-table"><thead><tr>'+th+'</tr></thead><tbody>'+body+'</tbody></table>';$('more').hidden=rows.length<=state.limit;$('more-btn').textContent='Xem thêm ('+num(rows.length-state.limit)+' bản ghi)'}
 $('table-scroll').addEventListener('click',function(ev){var th=ev.target.closest('th[data-sort]');if(!th)return;var c=th.getAttribute('data-sort');state.sort=state.sort.col===c?{col:c,asc:!state.sort.asc}:{col:c,asc:true};renderData()});
 $('more-btn').addEventListener('click',function(){state.limit+=300;renderData()});

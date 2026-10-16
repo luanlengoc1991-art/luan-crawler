@@ -1,5 +1,7 @@
 // MCP server (Streamable HTTP, stateless JSON responses) for real-estate sales tables.
 import * as XLSX from "xlsx";
+import { dashboardPage } from "./dashboard-ui.js";
+import { handleDashboardApi } from "./dashboard-api.js";
 
 const API = "https://api.vhub.com.vn";
 const DEFAULT_PROJECT = "vinhomes-global-gate-ha-long";
@@ -376,13 +378,15 @@ code{background:#f2f2f2;padding:2px 6px;border-radius:4px;word-break:break-all}@
 }
 
 export default {
-  async fetch(request) {
+  async fetch(request, env) {
     const url = new URL(request.url);
     if (request.method === "OPTIONS") return new Response(null, { status: 204, headers: CORS });
     try {
+      const dashboardResponse = await handleDashboardApi(request, env, { resolveProject, loadUnits });
+      if (dashboardResponse) return dashboardResponse;
       if (url.pathname === "/mcp") return await handleMcp(request, url.origin);
       if (url.pathname === "/export.xlsx") return await handleExport(url);
-      if (url.pathname === "/") return new Response(homePage(url.origin), { headers: { "Content-Type": "text/html; charset=utf-8" } });
+      if (url.pathname === "/") return new Response(dashboardPage(), { headers: { "Content-Type": "text/html; charset=utf-8" } });
       return new Response("Not found", { status: 404 });
     } catch (e) {
       return new Response(`Lỗi: ${e.message}`, { status: 502, headers: { "Content-Type": "text/plain; charset=utf-8", ...CORS } });

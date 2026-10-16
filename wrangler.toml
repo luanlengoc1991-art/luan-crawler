@@ -1,0 +1,5 @@
+# Cloudflare Worker: Luan bảng hàng MCP server (code in worker/)
+name = "luan-crawler"
+main = "worker/index.js"
+compatibility_date = "2025-09-01"
+compatibility_flags = ["nodejs_compat"]

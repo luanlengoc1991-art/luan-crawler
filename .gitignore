@@ -311,3 +311,8 @@ out/
 
 # entrypoint.sh is a required deployment artifact (Dockerfile COPYs it)
 !deploy/docker/entrypoint.sh
+
+# Cloudflare Worker
+node_modules/
+.wrangler/
+exports/

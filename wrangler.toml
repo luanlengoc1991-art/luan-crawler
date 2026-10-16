@@ -1,5 +1,15 @@
-# Cloudflare Worker: Luan bảng hàng MCP server (code in worker/)
+# Cloudflare Worker: LUAN CRAWLER (dashboard, watchlist, MCP server — code in worker/)
 name = "luan-crawler"
 main = "worker/index.js"
 compatibility_date = "2025-09-01"
 compatibility_flags = ["nodejs_compat"]
+
+# Watched sources, current items and change history
+[[d1_databases]]
+binding = "DB"
+database_name = "luan-crawler-db"
+database_id = "5e8363a0-0911-4099-bb51-d8e5358a5c82"
+
+# Server-side refresh: every 15 minutes, re-check sources whose own interval (default 60 min) is due
+[triggers]
+crons = ["*/15 * * * *"]

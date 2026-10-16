@@ -2,6 +2,7 @@
 import * as XLSX from "xlsx";
 import { dashboardPage } from "./dashboard-ui.js";
 import { handleDashboardApi } from "./dashboard-api.js";
+import { handleWatchApi, runScheduled } from "./watch-api.js";
 
 const API = "https://api.vhub.com.vn";
 const DEFAULT_PROJECT = "vinhomes-global-gate-ha-long";
@@ -53,7 +54,8 @@ async function resolveProject(input) {
   return found;
 }
 
-function loadUnits(projectId) {
+function loadUnits(projectId, opts = {}) {
+  if (opts.fresh) cache.delete("units:" + projectId);
   return cached("units:" + projectId, async () => {
     const all = [];
     for (let page = 1; page <= 50; page++) {
@@ -382,6 +384,8 @@ export default {
     const url = new URL(request.url);
     if (request.method === "OPTIONS") return new Response(null, { status: 204, headers: CORS });
     try {
+      const watchResponse = await handleWatchApi(request, env, { resolveProject, loadUnits });
+      if (watchResponse) return watchResponse;
       const dashboardResponse = await handleDashboardApi(request, env, { resolveProject, loadUnits });
       if (dashboardResponse) return dashboardResponse;
       if (url.pathname === "/mcp") return await handleMcp(request, url.origin);
@@ -391,5 +395,8 @@ export default {
     } catch (e) {
       return new Response(`Lỗi: ${e.message}`, { status: 502, headers: { "Content-Type": "text/plain; charset=utf-8", ...CORS } });
     }
+  },
+  async scheduled(event, env, ctx) {
+    ctx.waitUntil(runScheduled(env, { resolveProject, loadUnits }));
   },
 };

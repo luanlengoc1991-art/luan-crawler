@@ -14,7 +14,7 @@ const json = (x,status=200) => new Response(JSON.stringify(x),{status,headers});
 const error = (msg,status=400) => json({error:String(msg)},status);
 const clean = value => String(value ?? "").replace(/\s+/g," ").trim();
 
-function allowedHosts(env) {
+export function allowedHosts(env) {
   return [...new Set([...DEFAULT_HOSTS,...String(env?.DASHBOARD_ALLOWED_HOSTS || "").split(",").map(x => x.trim().toLowerCase()).filter(Boolean)])];
 }
 function safeURL(input, hosts) {
@@ -80,7 +80,7 @@ function extractHTML(html,url) {
   const rows=[{"Tiêu đề":title,"Mô tả":desc,"Nội dung":plain(html).slice(0,6000),"URL":url,"Số liên kết":links.length}];
   return {url,title,kind:"HTML Text",columns,rows,links,rowCount:rows.length};
 }
-async function fetchPublic(input, hosts) {
+export async function fetchPublic(input, hosts) {
   let u=safeURL(input,hosts);
   for(let i=0;i<4;i++){
     const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),15000);

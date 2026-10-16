@@ -71,6 +71,10 @@ function rowHash(data) {
   return fnv(JSON.stringify(keys.map((k) => [k, data[k]])));
 }
 
+function searchKey(s) {
+  return String(s ?? "").toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/đ/g, "d").replace(/[^a-z0-9]/g, "");
+}
+
 function normalizeUrl(input) {
   const u = new URL(String(input).trim());
   u.hash = "";
@@ -321,6 +325,24 @@ export async function handleWatchApi(request, env, deps) {
     if (parts[0] === "seen-all" && method === "POST") {
       await db.prepare("UPDATE sources SET unseen = 0, seen_at = ?").bind(Date.now()).run();
       return json({ ok: true });
+    }
+    // GET /api/watch/search?q=  — unit code search across every watched source (accent-insensitive)
+    if (parts[0] === "search" && method === "GET") {
+      const q = searchKey(url.searchParams.get("q"));
+      if (q.length < 2) return json({ q, results: [], total: 0 });
+      const { results: keys } = await db.prepare("SELECT source_id, key FROM items").all();
+      const hits = keys.map((k) => ({ ...k, n: searchKey(k.key) })).filter((k) => k.n.includes(q));
+      hits.sort((a, b) => (b.n === q) - (a.n === q) || b.n.startsWith(q) - a.n.startsWith(q) || a.key.localeCompare(b.key, "vi", { numeric: true }));
+      const top = hits.slice(0, 40);
+      if (!top.length) return json({ q, results: [], total: 0 });
+      const rows = await db.batch(top.map((h) => db.prepare(
+        `SELECT i.source_id, i.key, i.data, i.changed_at, i.removed_at, s.name, s.url, s.seen_at, s.last_checked_at
+           FROM items i JOIN sources s ON s.id = i.source_id WHERE i.source_id = ? AND i.key = ?`).bind(h.source_id, h.key)));
+      const results = rows.map((r) => r.results[0]).filter(Boolean).map((r) => ({
+        sourceId: r.source_id, sourceName: r.name, url: r.url, key: r.key, data: JSON.parse(r.data),
+        removedAt: r.removed_at, changedAt: r.changed_at, unseenChange: !!(r.changed_at && r.changed_at > (r.seen_at || 0)), checkedAt: r.last_checked_at,
+      }));
+      return json({ q, results, total: hits.length });
     }
     // GET /api/watch/changes?limit=
     if (parts[0] === "changes" && method === "GET") {

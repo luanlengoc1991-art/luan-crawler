@@ -313,6 +313,80 @@ button,input,textarea,select{font:inherit;color:inherit}button{cursor:pointer}bu
 .data-table tr.r-added td{background:#d9f7e8!important}
 #watch .toolbar .btn-outline{background:#fff;border-color:#cfe3da;color:var(--ink);height:50px;padding:0 24px;font-size:14px}#watch .toolbar .btn-outline:hover{background:var(--soft);border-color:var(--mint-2)}.data-head .preview-select{width:280px}@media(min-width:1181px){.data-head .preview-top-right{flex-wrap:nowrap}}
 .tick{display:inline-grid;place-items:center;width:24px;height:24px;border-radius:999px;background:#d1f5e3;color:var(--em-2);font-weight:800;font-size:12px}
+
+/* ---- effects (luangroup /du-an) ---- */
+html,body{overflow-x:clip}
+.eyebrow .eb-window{overflow:hidden;max-width:260px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent);mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent)}
+.eyebrow .eb-track{display:flex;width:max-content;animation:sz-tick 12s linear infinite}
+.eyebrow .eb-track span{padding-right:28px;white-space:nowrap}
+@keyframes sz-tick{to{transform:translateX(-50%)}}
+.btn-arrow{position:relative;overflow:hidden;isolation:isolate;transition:color .45s var(--ease),transform .35s var(--ease)}
+.btn-arrow i{position:relative;background:none!important;transition:transform .45s var(--ease)}
+.btn-arrow i:before{content:"";position:absolute;inset:0;border-radius:50%;z-index:-1;background:var(--deep);transition:transform .55s var(--ease)}
+.btn-white.btn-arrow i:before{background:var(--grad)}
+.btn-arrow:hover i{transform:rotate(45deg)}
+.btn-arrow:hover i:before{transform:scale(9)}
+.btn-white.btn-arrow:hover{color:var(--deep)}
+.glass:hover{transform:translateY(-8px)}
+.hero .blob{position:absolute;border-radius:50%;filter:blur(60px);opacity:.55;z-index:-1;pointer-events:none;animation:qc-float 14s ease-in-out infinite}
+.hero .blob.b1{width:420px;height:420px;right:8%;top:12%;background:#1fbf86}
+.hero .blob.b2{width:360px;height:360px;left:-6%;bottom:-10%;background:#0b6b4f;animation-delay:-6s}
+@keyframes qc-float{0%,100%{transform:translate3d(0,0,0) scale(1)}50%{transform:translate3d(-30px,24px,0) scale(1.08)}}
+.fx-marquee{position:relative;z-index:3;overflow:hidden;padding:20px 0;margin:-34px 0 -26px;background:linear-gradient(90deg,#065f46,#059669 50%,#065f46);color:#fff;transform:rotate(-1.2deg) scale(1.02);box-shadow:0 20px 40px -24px rgba(2,38,29,.5)}
+.fx-marquee-track{display:flex;width:max-content;animation:fx-marquee 38s linear infinite}
+.fx-marquee:hover .fx-marquee-track{animation-play-state:paused}
+.fx-marquee-track span{display:flex;align-items:center;gap:22px;padding-right:22px;font-size:clamp(18px,2vw,26px);font-weight:700;letter-spacing:-.03em;white-space:nowrap}
+.fx-marquee-track b{width:12px;height:12px;border-radius:50%;background:var(--mint);flex:none}
+@keyframes fx-marquee{to{transform:translateX(-50%)}}
+[data-reveal]{opacity:0;transform:translateY(28px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+[data-reveal].is-in{opacity:1;transform:none}
+.refresh-bar{position:relative;height:3px;background:#cfe3da;border-radius:3px;overflow:hidden;width:120px;display:inline-block;vertical-align:middle;margin-left:10px}
+.refresh-bar i{position:absolute;inset:0;background:linear-gradient(90deg,var(--em),var(--mint-2));transform-origin:0 50%;animation:sz-bar-x 60s linear forwards}
+@keyframes sz-bar-x{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+/* ---- unit code search ---- */
+.hero-search{display:flex;align-items:center;gap:10px;margin-top:28px;padding:8px 8px 8px 22px;border-radius:999px;background:rgba(255,255,255,.1);border:1px solid rgba(142,240,196,.45);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);max-width:640px;box-shadow:0 0 0 6px rgba(142,240,196,.08);transition:box-shadow .3s,border-color .3s}
+.hero-search:focus-within{border-color:var(--mint);box-shadow:0 0 0 8px rgba(142,240,196,.18)}
+.hero-search .hs-icon{font-size:24px;color:var(--mint);line-height:1}
+.hero-search input{flex:1;min-width:0;height:48px;border:0;outline:0;background:transparent;color:#fff;font-size:17px;font-weight:600;letter-spacing:-.01em}
+.hero-search input::placeholder{color:#a8cfbf;font-weight:500}
+.hs-hint{margin:10px 0 0 22px;font-size:12.5px;color:#9fc5b4}
+kbd{display:inline-block;min-width:22px;padding:1px 7px;border-radius:6px;border:1px solid currentColor;font:600 11.5px ui-monospace,Consolas,monospace;opacity:.85}
+.fab{position:fixed;right:26px;bottom:26px;z-index:55;display:flex;align-items:center;gap:10px;height:60px;padding:0 24px 0 8px;border:0;border-radius:999px;background:var(--grad);color:var(--deep);font-weight:800;font-size:15px;box-shadow:0 18px 40px -14px rgba(5,150,105,.75);isolation:isolate;transition:transform .35s var(--ease)}
+.fab:hover{transform:translateY(-3px)}
+.fab .fab-ic{position:relative;width:46px;height:46px;border-radius:50%;display:grid;place-items:center;background:var(--deep);color:var(--mint);font-size:22px}
+.fab .fab-wave{position:absolute;inset:0;border-radius:50%;border:2px solid #34d399;opacity:0;animation:sz-rc-wave 2.8s ease-out infinite;z-index:-1}
+.fab .fab-wave.is-2{animation-delay:1.4s}
+@keyframes sz-rc-wave{0%{transform:scale(1);opacity:.75}100%{transform:scale(2.2);opacity:0}}
+.sx[hidden]{display:none}
+.sx{position:fixed;inset:0;z-index:80;display:flex;align-items:flex-start;justify-content:center;padding:9vh 16px 16px}
+.sx-backdrop{position:absolute;inset:0;background:rgba(2,26,20,.62);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);animation:sx-fade .25s ease}
+.sx-panel{position:relative;width:min(860px,100%);max-height:82vh;display:flex;flex-direction:column;border-radius:var(--r-lg);background:#fff;box-shadow:0 60px 120px -40px rgba(0,0,0,.6);overflow:hidden;animation:sx-up .35s var(--ease)}
+@keyframes sx-fade{from{opacity:0}}
+@keyframes sx-up{from{opacity:0;transform:translateY(24px) scale(.98)}}
+.sx-bar{display:flex;align-items:center;gap:14px;padding:14px 18px 14px 24px;background:var(--deep);color:#fff}
+.sx-bar>span{font-size:26px;color:var(--mint)}
+.sx-bar input{flex:1;min-width:0;height:56px;border:0;outline:0;background:transparent;color:#fff;font-size:22px;font-weight:700;letter-spacing:-.02em}
+.sx-bar input::placeholder{color:#8fb8a7;font-weight:500}
+.sx-bar kbd{cursor:pointer;color:#c3dfd0}
+.sx-meta{padding:12px 24px;font-size:13px;color:var(--text);background:#e7f8ef;border-bottom:1px solid #cfe3da}
+.sx-results{overflow-y:auto}
+.sx-item{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px 20px;align-items:center;padding:18px 24px;border-bottom:1px solid var(--line);transition:background .2s}
+.sx-item:hover,.sx-item.is-active{background:#f0fbf5}
+.sx-code{font-size:21px;font-weight:800;letter-spacing:-.03em;color:var(--deep)}
+.sx-code mark{background:#bff3da;color:inherit;border-radius:4px;padding:0 2px}
+.sx-tags{display:inline-flex;gap:6px;margin-left:10px;vertical-align:middle}
+.sx-info{font-size:13.5px;color:var(--text);margin-top:4px}
+.sx-info b{color:var(--ink);font-weight:600}
+.sx-src{font-size:12.5px;color:var(--em-2);font-weight:600;margin-top:2px}
+.sx-right{text-align:right}
+.sx-price{font-size:22px;font-weight:800;letter-spacing:-.03em;color:var(--em-2)}
+.sx-price small{display:block;font-size:12px;font-weight:600;color:var(--muted);letter-spacing:0}
+.sx-actions{display:flex;gap:8px;justify-content:flex-end;margin-top:8px}
+.sx-actions .btn{height:36px;padding:0 14px;font-size:12.5px}
+.sx-empty{padding:46px 24px;text-align:center;color:var(--muted)}
+.sx-empty b{display:block;font-size:17px;color:var(--ink);margin-bottom:4px}
+@media(max-width:640px){.hero-search{padding-left:16px}.hero-search .btn-arrow{height:48px;padding:0 4px 0 14px;font-size:13px}.hero-search .btn-arrow i{width:40px;height:40px}.fab{right:16px;bottom:16px;height:56px;padding-right:18px}.fab b{display:none}.fab{padding:0 5px}.sx{padding-top:4vh}.sx-bar input{font-size:18px}.sx-item{grid-template-columns:1fr}.sx-right{text-align:left}.sx-actions{justify-content:flex-start}.fx-marquee{margin:-22px 0 -16px}}
+@media(prefers-reduced-motion:reduce){.eyebrow .eb-track,.fx-marquee-track,.hero .blob,.fab .fab-wave,.refresh-bar i{animation:none}[data-reveal]{opacity:1;transform:none}}
 @media(max-width:1180px){.hero-grid{grid-template-columns:1fr}.setup{max-width:760px}.wgrid{grid-template-columns:140px minmax(200px,1.5fr) 80px minmax(150px,1fr) 140px 200px}.wgrid>.wnext{display:none}.whead .wnext{display:none}}
 @media(max-width:900px){.whead{display:none}.wgrid{grid-template-columns:1fr 1fr;gap:10px 14px}.wrow{padding:18px}.wgrid>.wname,.wgrid>.wact,.wgrid>.wchg{grid-column:1/-1}.wgrid>.wnext{display:block}.wact{justify-content:flex-start;flex-wrap:wrap}.wlabel{display:block;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:2px}.toolbar .select{flex:1 1 140px}.toolbar-right{width:100%}.toolbar-right .btn{flex:1}}
 @media(max-width:640px){.hero-body{padding:110px 0 36px}.setup{padding:20px}.setup-head strong{font-size:19px}.stat strong{font-size:32px}.feed-item{grid-template-columns:1fr}.filters{grid-template-columns:1fr 1fr}}
@@ -328,12 +402,15 @@ button,input,textarea,select{font:inherit;color:inherit}button{cursor:pointer}bu
 </header>
 <main>
 <section class="hero on-dark" id="top">
+  <span class="blob b1" aria-hidden="true"></span><span class="blob b2" aria-hidden="true"></span>
   <div class="wrap hero-body">
     <div class="hero-grid">
       <div>
-        <div class="eyebrow">LUAN CRAWLER · Theo dõi giỏ hàng</div>
+        <div class="eyebrow"><span class="eb-window"><span class="eb-track"><span>LUAN CRAWLER · Theo dõi giỏ hàng</span><span>Báo đỏ khi có thay đổi</span><span>Tự cập nhật 60 phút</span><span>LUAN CRAWLER · Theo dõi giỏ hàng</span><span>Báo đỏ khi có thay đổi</span><span>Tự cập nhật 60 phút</span></span></span></div>
         <h1>Mọi thay đổi giỏ hàng.<br><span>Biết ngay lập tức.</span></h1>
         <p class="hero-statement">Dán link bảng hàng, hệ thống lưu lại toàn bộ dữ liệu và liên kết với link gốc. Tự kiểm tra lại mỗi 60 phút, kể cả khi bạn tắt máy. Có căn mới, căn đã bán hay đổi giá là báo đỏ; không có gì thay đổi thì tích xanh.</p>
+        <form class="hero-search" id="hero-search" role="search"><span class="hs-icon" aria-hidden="true">⌕</span><input id="hero-q" autocomplete="off" placeholder="Tìm nhanh mã căn, VD: NĐ11-41" aria-label="Tìm mã căn"><button class="btn btn-white btn-arrow" type="submit">Tìm mã căn <i>↗</i></button></form>
+        <p class="hs-hint">Tìm trong mọi nguồn đang theo dõi · nhấn <kbd>/</kbd> hoặc <kbd>Ctrl K</kbd> ở bất kỳ đâu</p>
         <div class="hero-cards" aria-label="Tổng quan theo dõi">
           <div class="glass stat"><div class="heading">Nguồn đang theo dõi</div><strong id="stat-total">0</strong><small>Link gốc đã lưu</small></div>
           <div class="glass stat" id="stat-alert-card"><div class="heading">Có cập nhật mới</div><strong id="stat-alerts">0</strong><small id="stat-alerts-note">Chưa có thay đổi</small></div>
@@ -362,6 +439,7 @@ button,input,textarea,select{font:inherit;color:inherit}button{cursor:pointer}bu
   </div>
 </section>
 
+<div class="fx-marquee" aria-hidden="true"><div class="fx-marquee-track"><span><b></b>Theo dõi giỏ hàng<b></b>Báo đỏ khi có căn mới<b></b>Đổi giá<b></b>Đã bán / gỡ<b></b>Tự cập nhật 60 phút<b></b>Tìm mã căn tức thì<b></b>Xuất Excel<b></b>MCP cho AI</span><span><b></b>Theo dõi giỏ hàng<b></b>Báo đỏ khi có căn mới<b></b>Đổi giá<b></b>Đã bán / gỡ<b></b>Tự cập nhật 60 phút<b></b>Tìm mã căn tức thì<b></b>Xuất Excel<b></b>MCP cho AI</span></div></div>
 <section class="section band on-dark" id="watch"><div class="wrap">
  <div class="section-head"><div><div class="eyebrow">01 · Bảng theo dõi</div><h2 class="h2">Toàn bộ link gốc.<br><span>Thay đổi nào cũng thấy.</span></h2><p class="lead">Đỏ là có cập nhật mới chưa xem, xanh là không có thay đổi gì. Nguồn có cập nhật mới luôn nằm trên cùng.</p></div><div class="outline-num" aria-hidden="true">01</div></div>
  <div class="panel manager-panel">
@@ -373,7 +451,7 @@ button,input,textarea,select{font:inherit;color:inherit}button{cursor:pointer}bu
    <select class="select" id="f-sort" aria-label="Sắp xếp"><option value="alert">Ưu tiên cập nhật mới</option><option value="changed">Thay đổi gần nhất</option><option value="checked">Kiểm tra gần nhất</option><option value="name">Tên A → Z</option><option value="rows">Nhiều bản ghi nhất</option></select>
    <div class="toolbar-right"><button class="btn btn-outline" id="seen-all">✓ Đã xem tất cả</button><button class="btn btn-dark" id="check-all-2">↻ Cập nhật tất cả</button></div>
   </div>
-  <div class="livebar"><span><span class="live-dot"></span><span id="live-text">Màn hình tự làm mới mỗi 60 giây</span></span><span id="clock">—</span></div>
+  <div class="livebar"><span><span class="live-dot"></span><span id="live-text">Màn hình tự làm mới mỗi 60 giây</span><span class="refresh-bar" aria-hidden="true"><i id="refresh-bar"></i></span></span><span id="clock">—</span></div>
   <div class="wgrid whead"><span>Trạng thái</span><span>Nguồn · link gốc</span><span>Bản ghi</span><span>Thay đổi gần nhất</span><span>Kiểm tra lúc</span><span class="wnext">Lần tới</span><span style="text-align:right">Thao tác</span></div>
   <div id="watch-list" aria-live="polite"><div class="empty"><span class="big">⌁</span><b>Chưa có nguồn theo dõi</b><p>Dán link vào ô Thiết lập nguồn dữ liệu ở đầu trang.</p></div></div>
  </div>
@@ -412,6 +490,8 @@ button,input,textarea,select{font:inherit;color:inherit}button{cursor:pointer}bu
 </div></section>
 </main>
 <footer class="footer"><div class="wrap"><div class="footer-main"><div><a href="#top" class="brand"><span class="brand-mark">L</span><span class="brand-text"><strong>LUAN CRAWLER</strong><small>BY LUAN GROUP</small></span></a><p>Theo dõi giỏ hàng và bảng giá từ nhiều website trong một không gian làm việc, luôn đồng bộ với link gốc.</p></div><div class="footer-nav"><a href="#top">Thiết lập</a><a href="#watch">Theo dõi</a><a href="#data">Dữ liệu</a><a href="#changes">Thay đổi</a><a href="#ecosystem">MCP &amp; API</a><a href="https://luangroup.asia/du-an" target="_blank" rel="noopener">LUAN GROUP ↗</a></div></div><div class="footer-bottom"><span>© 2026 LUAN GROUP · LUAN CRAWLER</span><span>Giờ Việt Nam (GMT+7)</span><span>Thiết kế cho mọi thiết bị.</span></div></div></footer>
+<button class="fab" id="fab-search" type="button" aria-label="Tìm mã căn"><span class="fab-ic"><span class="fab-wave"></span><span class="fab-wave is-2"></span>⌕</span><b>Tìm mã căn</b></button>
+<div class="sx" id="sx" hidden><div class="sx-backdrop" data-close></div><div class="sx-panel" role="dialog" aria-modal="true" aria-label="Tìm mã căn"><div class="sx-bar"><span aria-hidden="true">⌕</span><input id="sx-q" autocomplete="off" spellcheck="false" placeholder="Nhập mã căn, VD: NĐ11-41, BM1-164"><kbd data-close title="Đóng">Esc</kbd></div><div class="sx-meta" id="sx-meta">Gõ ít nhất 2 ký tự. Không cần gõ dấu: "nd11" vẫn ra "NĐ11".</div><div class="sx-results" id="sx-results"></div></div></div>
 <div id="toast" class="toast" role="status" aria-live="polite"></div>
 <script>
 (function(){
@@ -447,7 +527,7 @@ var INTERVAL_OPTS=[[15,'15 phút'],[30,'30 phút'],[60,'60 phút'],[120,'2 giờ
 /* ---------- watchlist ---------- */
 function renderWatch(){
   var t=state.totals||{},list=state.sources;
-  $('stat-total').textContent=num(t.sources);$('stat-rows').textContent=num(t.rows);$('stat-alerts').textContent=num(t.alerts);
+  countTo($('stat-total'),t.sources);countTo($('stat-rows'),t.rows);countTo($('stat-alerts'),t.alerts);
   $('stat-alert-card').className='glass stat '+(t.alerts?'alert':(t.sources?'calm':''));
   $('stat-alerts-note').textContent=t.alerts?'Nguồn có thay đổi chưa xem':(t.sources?'Mọi nguồn đều không đổi':'Chưa có thay đổi');
   $('stat-next').textContent=t.nextCheckAt?fmtTime(t.nextCheckAt):'—';$('stat-next-note').textContent=t.nextCheckAt?until(t.nextCheckAt):'Tự động mỗi 60 phút';
@@ -476,7 +556,7 @@ function renderWatch(){
 function uniq(a){return a.filter(function(x,i){return a.indexOf(x)===i}).sort(function(a,b){return String(a).localeCompare(String(b),'vi')})}
 function fillSelect(el,first,vals){var cur=el.value;el.innerHTML='<option value="">'+first+'</option>'+vals.map(function(v){return '<option value="'+esc(v)+'">'+esc(v)+'</option>'}).join('');if(vals.indexOf(cur)>=0)el.value=cur}
 
-async function loadSources(){var d=await getJSON('/api/watch/sources');var prev={};state.sources.forEach(function(s){prev[s.id]=s.lastCheckedAt});state.sources=d.sources;state.totals=d.totals;renderWatch();$('live-text').textContent='Màn hình tự làm mới mỗi 60 giây · lần làm mới cuối '+fmtTime(Date.now());
+async function loadSources(){var d=await getJSON('/api/watch/sources');var prev={};state.sources.forEach(function(s){prev[s.id]=s.lastCheckedAt});state.sources=d.sources;state.totals=d.totals;renderWatch();$('live-text').textContent='Màn hình tự làm mới mỗi 60 giây · lần làm mới cuối '+fmtTime(Date.now());var rb=$('refresh-bar');rb.style.animation='none';void rb.offsetWidth;rb.style.animation='';
   if(!state.selected&&state.sources.length){var first=state.sources.find(function(s){return s.unseen>0})||state.sources[0];selectSource(first.id);return}
   var sel=state.sources.find(function(s){return s.id===state.selected});if(sel&&state.data&&prev[sel.id]!==sel.lastCheckedAt)loadData(sel.id,true);}
 async function loadFeed(){try{var d=await getJSON('/api/watch/changes?limit=150');state.changes=d.changes;renderFeed()}catch(e){}}
@@ -508,7 +588,7 @@ async function exportXlsx(id){try{var s=state.sources.find(function(x){return x.
 /* ---------- data view ---------- */
 function selectSource(id,scroll){state.selected=id;$('data-source').value=String(id);state.limit=200;state.sort={col:null,asc:true};state.filters={};loadData(id);renderWatch();if(scroll)document.getElementById('data').scrollIntoView({behavior:'smooth'})}
 $('data-source').addEventListener('change',function(){if(this.value)selectSource(Number(this.value))});
-async function loadData(id,keep){try{var d=await getJSON('/api/watch/sources/'+id+'/items');if(state.selected!==id)return;state.data=d;if(!keep)buildFilters();renderData();loadChecks(id)}catch(e){toast('Không tải được dữ liệu: '+e.message)}}
+async function loadData(id,keep){try{var d=await getJSON('/api/watch/sources/'+id+'/items');if(state.selected!==id)return;state.data=d;if(!keep)buildFilters();if(state.pendingQ){var qi=document.querySelector('#filters [data-f="q"]');if(qi){qi.value=state.pendingQ;state.filters.q=state.pendingQ}state.pendingQ=null}renderData();loadChecks(id)}catch(e){toast('Không tải được dữ liệu: '+e.message)}}
 async function loadChecks(id){try{var d=await getJSON('/api/watch/sources/'+id+'/changes');$('checks').innerHTML=d.checks.length?d.checks.map(function(c){return '<div class="check-line"><span>'+fmtTime(c.at,true)+' · '+(c.status==='ok'?num(c.row_count)+' dòng':'⚠ Lỗi')+'</span><span>'+(c.status==='ok'?(c.added+c.removed+c.changed?'+'+c.added+' / −'+c.removed+' / '+c.changed+' đổi':'✓ Không đổi'):esc(c.error||''))+'</span></div>'}).join(''):'<div class="check-line"><span>Chưa có lượt quét</span><span></span></div>'}catch(e){}}
 function buildFilters(){var d=state.data;if(!d){$('filters').innerHTML='';return}var cols=d.columns,items=d.items;state.filters={};
   var html='<input class="input" data-f="q" placeholder="Tìm mã căn, nội dung…" aria-label="Tìm trong dữ liệu">';
@@ -547,6 +627,37 @@ $('more-btn').addEventListener('click',function(){state.limit+=300;renderData()}
 $('data-xlsx').addEventListener('click',function(){if(state.selected)exportXlsx(state.selected);else toast('Chọn một nguồn trước.')});
 $('data-csv').addEventListener('click',function(){var d=state.data;if(!d){toast('Chọn một nguồn trước.');return}var rows=filtered(),cols=d.columns;var e=function(v){var s=String(v==null?'':v);if(/^[=+@\-\t\r]/.test(s))s="'"+s;return '"'+s.replace(/"/g,'""')+'"'};var lines=[['Trạng thái'].concat(cols.map(label)).map(e).join(',')].concat(rows.map(function(it){return [it.removedAt?'Đã gỡ':it.change?TYPE_TEXT[it.change.type]:''].concat(cols.map(function(c){return it.data[c]})).map(e).join(',')}));download(new Blob(['﻿'+lines.join('\r\n')],{type:'text/csv;charset=utf-8'}),'LUAN_loc_'+new Date().toISOString().slice(0,10)+'.csv')});
 $('feed-filter').addEventListener('click',function(ev){var b=ev.target.closest('button');if(!b)return;state.feedType=b.getAttribute('data-type');[].forEach.call(this.querySelectorAll('button'),function(x){x.classList.toggle('on',x===b)});renderFeed()});
+
+
+/* ---------- effects ---------- */
+function countTo(el,target){target=Number(target||0);var from=Number(el.getAttribute('data-v')||0);el.setAttribute('data-v',target);if(from===target){el.textContent=num(target);return}var t0=performance.now(),d=900;(function step(t){var p=Math.min(1,(t-t0)/d),e=1-Math.pow(1-p,3);el.textContent=num(Math.round(from+(target-from)*e));if(p<1)requestAnimationFrame(step)})(t0)}
+(function reveal(){var els=document.querySelectorAll('.section-head,.manager-panel,.data-zone .panel,.sync-card,.eco-card,.setup');if(!('IntersectionObserver' in window))return;var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){en.target.classList.add('is-in');io.unobserve(en.target)}})},{rootMargin:'0px 0px -8% 0px'});[].forEach.call(els,function(el,i){el.setAttribute('data-reveal','');el.style.transitionDelay=(el.classList.contains('eco-card')||el.classList.contains('sync-card')?(i%3)*0.12:0)+'s';io.observe(el)})})();
+
+/* ---------- unit code search ---------- */
+var sxTimer,sxSeq=0,sxActive=-1,sxList=[];
+function skey(s){return String(s==null?'':s).toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/đ/g,'d').replace(/[^a-z0-9]/g,'')}
+function highlight(code,q){var n=skey(q);if(!n)return esc(code);var map=[],plain='';for(var i=0;i<code.length;i++){var k=skey(code[i]);for(var j=0;j<k.length;j++){plain+=k[j];map.push(i)}}var at=plain.indexOf(n);if(at<0)return esc(code);var a=map[at],b=map[at+n.length-1]+1;return esc(code.slice(0,a))+'<mark>'+esc(code.slice(a,b))+'</mark>'+esc(code.slice(b))}
+function openSearch(q){$('sx').hidden=false;document.body.style.overflow='hidden';var inp=$('sx-q');inp.value=q||inp.value;setTimeout(function(){inp.focus();inp.select()},30);if(inp.value.trim().length>=2)runSearch(inp.value)}
+function closeSearch(){$('sx').hidden=true;document.body.style.overflow=''}
+async function runSearch(q){var seq=++sxSeq;q=q.trim();if(skey(q).length<2){sxList=[];$('sx-results').innerHTML='';$('sx-meta').textContent='Gõ ít nhất 2 ký tự. Không cần gõ dấu: "nd11" vẫn ra "NĐ11".';return}
+  $('sx-meta').textContent='Đang tìm "'+q+'"…';
+  try{var d=await getJSON('/api/watch/search?q='+encodeURIComponent(q));if(seq!==sxSeq)return;sxList=d.results;sxActive=sxList.length?0:-1;
+    $('sx-meta').innerHTML=d.total?'Tìm thấy <b>'+num(d.total)+'</b> mã căn khớp "'+esc(q)+'" trong '+num(state.sources.length)+' nguồn đang theo dõi'+(d.total>sxList.length?' · hiển thị '+sxList.length+' kết quả đầu':''):'Không có mã căn nào khớp "'+esc(q)+'" trong '+num(state.sources.length)+' nguồn đang theo dõi.';
+    renderSearch(q)}catch(e){if(seq===sxSeq)$('sx-meta').textContent='Lỗi tìm kiếm: '+e.message}}
+function renderSearch(q){if(!sxList.length){$('sx-results').innerHTML='<div class="sx-empty"><b>Không tìm thấy mã căn</b>Thử gõ ngắn hơn, ví dụ chỉ phần đầu "BM1" hoặc "NĐ11". Chỉ tìm được trong các nguồn đã thêm vào bảng theo dõi.</div>';return}
+  $('sx-results').innerHTML=sxList.map(function(r,i){var x=r.data||{};var st=r.removedAt?'<span class="delta rem">Đã bán / gỡ</span>':r.unseenChange?'<span class="delta price">● Có thay đổi</span>':'<span class="delta add">✓ Đang có</span>';
+    var info=[x.subdivision&&('Phân khu <b>'+esc(x.subdivision)+'</b>'),x.type&&('<b>'+esc(x.type)+'</b>'),x.direction&&('Hướng <b>'+esc(x.direction)+'</b>'),x.landArea&&('Đất <b>'+esc(show('landArea',x.landArea))+' m²</b>'),x.constructionArea&&('XD <b>'+esc(show('constructionArea',x.constructionArea))+' m²</b>')].filter(Boolean).join(' · ');
+    if(!info){info=Object.keys(x).slice(1,4).map(function(k){return esc(label(k))+': <b>'+esc(show(k,x[k]))+'</b>'}).join(' · ')}
+    var price=x.priceFull!=null?'<div class="sx-price">'+esc(money(x.priceFull))+'<small>Giá Full'+(x.pricePerSqm?' · '+esc(money(x.pricePerSqm))+'/m²':'')+'</small></div>':'';
+    return '<div class="sx-item'+(i===sxActive?' is-active':'')+'" data-i="'+i+'"><div><div><span class="sx-code">'+highlight(r.key,q)+'</span><span class="sx-tags">'+st+'</span></div><div class="sx-info">'+info+'</div><div class="sx-src">'+esc(r.sourceName||host(r.url))+' · kiểm tra '+ago(r.checkedAt)+'</div></div><div class="sx-right">'+price+'<div class="sx-actions"><button class="btn btn-dark" data-go="'+i+'">▤ Xem trong bảng</button><a class="btn btn-outline" href="'+esc(r.url)+'" target="_blank" rel="noopener">↗ Link gốc</a></div></div></div>'}).join('')}
+function goResult(i){var r=sxList[i];if(!r)return;closeSearch();state.pendingQ=r.key;if(state.selected===r.sourceId&&state.data){var qi=document.querySelector('#filters [data-f="q"]');if(qi){qi.value=r.key;state.filters.q=r.key;state.pendingQ=null;renderData()}document.getElementById('data').scrollIntoView({behavior:'smooth'})}else selectSource(r.sourceId,true)}
+$('sx-q').addEventListener('input',function(){var v=this.value;clearTimeout(sxTimer);sxTimer=setTimeout(function(){runSearch(v)},180)});
+$('sx-q').addEventListener('keydown',function(ev){if(ev.key==='ArrowDown'||ev.key==='ArrowUp'){ev.preventDefault();if(!sxList.length)return;sxActive=(sxActive+(ev.key==='ArrowDown'?1:-1)+sxList.length)%sxList.length;renderSearch(this.value);var a=document.querySelector('.sx-item.is-active');if(a)a.scrollIntoView({block:'nearest'})}if(ev.key==='Enter'){ev.preventDefault();goResult(sxActive<0?0:sxActive)}});
+$('sx').addEventListener('click',function(ev){if(ev.target.closest('[data-close]')){closeSearch();return}var g=ev.target.closest('[data-go]');if(g){goResult(Number(g.getAttribute('data-go')));return}var it=ev.target.closest('.sx-item');if(it&&!ev.target.closest('a'))goResult(Number(it.getAttribute('data-i')))});
+$('fab-search').addEventListener('click',function(){openSearch('')});
+function hashSearch(){var m=location.hash.match(/^#tim=(.+)$/);if(m){try{openSearch(decodeURIComponent(m[1]))}catch(e){}}}window.addEventListener('hashchange',hashSearch);setTimeout(hashSearch,300);
+$('hero-search').addEventListener('submit',function(ev){ev.preventDefault();openSearch($('hero-q').value)});
+document.addEventListener('keydown',function(ev){var tag=(ev.target.tagName||'').toLowerCase(),typing=tag==='input'||tag==='textarea'||tag==='select';if(ev.key==='Escape'&&!$('sx').hidden){closeSearch();return}if(((ev.ctrlKey||ev.metaKey)&&ev.key.toLowerCase()==='k')||(ev.key==='/'&&!typing)){ev.preventDefault();openSearch('')}});
 
 /* ---------- settings, status, timers ---------- */
 $('settings-toggle').addEventListener('click',function(){$('settings').classList.toggle('open')});
